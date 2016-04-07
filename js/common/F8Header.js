@@ -252,14 +252,14 @@ class ItemWrapperWindows extends React.Component {
           {title.toUpperCase()}
         </Text>
       );
-    }
+    } 
 
     return (
       <TouchableOpacity
         accessibilityLabel={title}
         accessibilityTraits="button"
         onPress={onPress}
-        style={styles.itemWrapper}>
+        style={styles.itemWrapperWindows}>
         {content}
       </TouchableOpacity>
     );
@@ -304,6 +304,10 @@ var styles = StyleSheet.create({
   },
   itemWrapper: {
     padding: 11,
+  },
+  itemWrapperWindows: {
+    padding: 11,
+    backgroundColor: 'transparent',
   },
   itemText: {
     letterSpacing: 1,
