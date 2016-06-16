@@ -32,7 +32,6 @@ var StyleSheet = require('StyleSheet');
 var View = require('View');
 var Image = require('Image');
 var Dimensions = require('Dimensions');
-var Platform = require('Platform');
 
 // TODO: Remove this magic numbers
 const HEIGHT = Dimensions.get('window').height > 600
@@ -159,63 +158,6 @@ class ParallaxBackground extends React.Component {
   }
 }
 
-class ParallaxBackgroundWindows extends React.Component {
-  props: {
-    maxHeight: number;
-    minHeight: number;
-    offset: Animated.Value;
-    backgroundImage: number;
-    backgroundShift: number; // 0..1
-    backgroundColor: number; // TODO: This makes it seems like image loads faster. Remove
-    children: any;
-  };
-  
-  render() {
-    const {minHeight, maxHeight, offset, backgroundColor} = this.props;
-    const buffer = 10; // To reduce visual lag when scrolling
-    const height = maxHeight;
-
-    return (
-      <View style={[styles.container, {height, backgroundColor}]}>
-        {this.renderBackgroundImage()}
-        {this.renderContent()}
-      </View>
-    );
-  }
-  
-  renderBackgroundImage() {
-    const {backgroundImage, minHeight, maxHeight, offset} = this.props;
-    if (!backgroundImage) {
-      return null;
-    }
-
-    const {width} = resolveAssetSource(backgroundImage);
-    const imageStyle = { 
-        width: SCREEN_WIDTH,
-        height: maxHeight,
-    };
-    
-    return (
-      <Image
-        source={backgroundImage}
-        style={imageStyle}
-      />
-    );
-  }
-
-  renderContent() {
-    if (React.Children.count(this.props.children) === 0) {
-      return null;
-    }
-    const content = React.Children.only(this.props.children);
-    return (
-      <View style={[styles.contentContainer]}>
-        {content}
-      </View>
-    );
-  }
-}
-
 var HEADER_HEIGHT = HEIGHT + 156;
 
 var styles = StyleSheet.create({
@@ -239,4 +181,4 @@ var styles = StyleSheet.create({
 });
 
 
-module.exports = Platform.OS === 'windows' ? ParallaxBackgroundWindows : ParallaxBackground;
+module.exports = ParallaxBackground;

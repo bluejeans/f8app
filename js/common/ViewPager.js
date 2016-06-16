@@ -30,10 +30,11 @@ const {
   StyleSheet,
   ScrollView,
   ViewPagerAndroid,
-  FlipViewWindows,
   Platform,
-  Dimensions,
+  Dimensions,;
 } = require('react-native');
+
+const {FlipViewWindows} = require('react-native-windows');
 
 type Props = {
   count: number;
@@ -52,8 +53,6 @@ type State = {
   scrollingTo: ?number;
 };
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
-
 class ViewPager extends React.Component {
   props: Props;
   state: State;
@@ -61,7 +60,7 @@ class ViewPager extends React.Component {
   constructor(props: Props) {
     super(props);
     this.state = {
-      width: SCREEN_WIDTH,
+      width: 0,
       height: 0,
       selectedIndex: this.props.selectedIndex,
       initialSelectedIndex: this.props.selectedIndex,
@@ -125,7 +124,7 @@ class ViewPager extends React.Component {
         ref="scrollview"
         initialPage={this.state.initialSelectedIndex}
         onSelectionChange={this.handleHorizontalScroll}
-        style={styles.flipcontainer}>
+        style={styles.container}>
         {this.renderContent()}
       </FlipViewWindows>
     );
@@ -187,10 +186,6 @@ class ViewPager extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  flipcontainer: {
-    flex: 1,
-    backgroundColor: 'white',
   },
   scrollview: {
     flex: 1,
