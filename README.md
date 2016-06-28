@@ -15,6 +15,8 @@ We've created a series of tutorials at [makeitopen.com](http://makeitopen.com/) 
 2. [CocoaPods](http://cocoapods.org) (only for iOS)
   - Version 1.0+ recommended (`gem install cocoapods --pre`)
 3. [MongoDB](https://www.mongodb.org/downloads) (needed to run Parse Server locally)
+4. [Visual Studio 2015 Community](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) (only for Windows)
+  - Install Tools (1.4) and Windows 10 SDK (10.0.10586)
 
 ## Setup
 
@@ -84,4 +86,8 @@ We've created a series of tutorials at [makeitopen.com](http://makeitopen.com/) 
 
 8. **Running on Windows:**
 
-  See [windows](windows) folder [README](windows/README.md).
+- Run `react-native start` from the Git root.
+- Open [windows/F8v2.sln](windows/F8v2.sln) in Visual Studio 2015.
+- Set the F8v2 project as your StartUp Project in Visual Studio.
+- Choose the proper configuration (e.g., Debug), platform (e.g., x86), and deploy target (e.g., Local Machine).
+- Build and run the solution (i.e., press F5)
