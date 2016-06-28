@@ -31,7 +31,7 @@ const {
   ScrollView,
   ViewPagerAndroid,
   Platform,
-  Dimensions,;
+  Dimensions,
 } = require('react-native');
 
 const {FlipViewWindows} = require('react-native-windows');
