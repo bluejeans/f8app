@@ -1,5 +1,5 @@
 using BV.LinearGradient;
-using Cl.Json.Share;
+using Cl.Json.RNShare;
 using CodePush.ReactNative;
 using FacebookSDK;
 using ReactNative;
@@ -57,7 +57,7 @@ namespace F8v2
                     new MainReactPackage(),
                     new F8Package(),
                     new LinearGradientPackage(),
-                    new SharePackage(),
+                    new RNSharePackage(),
                     CodePushInstance,
                 };
             }

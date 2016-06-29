@@ -4851,9 +4851,9 @@
       "resolved": "https://registry.npmjs.org/react-native-send-intent/-/react-native-send-intent-1.0.11.tgz"
     },
     "react-native-share": {
-      "version": "1.0.5",
-      "from": "frantic/react-native-share#674df947b3",
-      "resolved": "git://github.com/frantic/react-native-share.git#674df947b36e9a34712bb8ef6fe3de3cff7b412e"
+      "version": "1.0.11",
+      "from": "react-native-share@>=1.0.11 <1.1.0",
+      "resolved": "https://registry.npmjs.org/react-native-share/-/react-native-share-1.0.11.tgz"
     },
     "react-proxy": {
       "version": "1.1.8",
