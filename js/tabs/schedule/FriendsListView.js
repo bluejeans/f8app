@@ -83,11 +83,17 @@ class FriendsListView extends React.Component {
   }
 
   renderEmptyList(): ?ReactElement {
+    if (Platform.OS !== 'windows') {
+      var inviteFriendsButton = (
+        <inviteFriendsButton />
+      );
+    }
+
     return (
       <EmptySchedule
         image={require('./img/no-friends-found.png')}
         text={'Friends using the F8 app\nwill appear here.'}>
-        <InviteFriendsButton />
+        {inviteFriendsButton}
       </EmptySchedule>
     );
   }
