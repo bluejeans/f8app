@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright 2016 Facebook, Inc.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -34,7 +34,6 @@ var Navigator = require('Navigator');
 var F8SplitView = require('F8SplitView');
 var View = require('View');
 var StyleSheet = require('StyleSheet');
-var ScrollView = require('ScrollView');
 var TouchableOpacity = require('TouchableOpacity');
 var Image = require('Image');
 var { Text } = require('F8Text');
@@ -68,7 +67,7 @@ class F8TabsView extends React.Component {
   getChildContext() {
     return {
       openDrawer: this.openPane,
-      hasUnreadNotifications: false,
+      hasUnreadNotifications: this.props.notificationsBadge > 0,
     };
   }
 
@@ -224,7 +223,7 @@ class F8TabsView extends React.Component {
 
 F8TabsView.childContextTypes = {
   openDrawer: React.PropTypes.func,
-  hasUnreadNotifications: React.PropTypes.bool,
+  hasUnreadNotifications: React.PropTypes.number,
 };
 
 function select(store) {
@@ -232,7 +231,7 @@ function select(store) {
     tab: store.navigation.tab,
     day: store.navigation.day,
     user: store.user,
-    notificationsBadge: 0,
+    notificationsBadge: unseenNotificationsCount(store) + store.surveys.length,
   };
 }
 

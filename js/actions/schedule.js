@@ -153,7 +153,9 @@ function shareSession(session: Session): ThunkAction {
 }
 
 function logShare(id, completed, activity) {
-  AppEventsLogger.logEvent('Share Session', 1, {id});
+  if (Platform.OS !== 'windows') {
+    AppEventsLogger.logEvent('Share Session', 1, {id});
+  }
   Parse.Analytics.track('share', {
     id,
     completed: completed ? 'yes' : 'no',

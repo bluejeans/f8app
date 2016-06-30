@@ -112,8 +112,7 @@ class LoginScreen extends React.Component {
   }
 }
 
-const widthFactor = Dimensions.get('window').width / 375;
-const scale = widthFactor < 2 ? widthFactor : 2;
+const scale = Dimensions.get('window').width / 375;
 
 var styles = StyleSheet.create({
   container: {

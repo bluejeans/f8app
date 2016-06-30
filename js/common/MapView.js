@@ -81,7 +81,7 @@ function urlForMap(map: ?Map): string {
   if (!map) {
     return '';
   }
-  switch (Math.round(PixelRatio.get())) {
+  switch (PixelRatio.get()) {
     case 1: return map.x1url;
     case 2: return map.x2url;
     case 3: return map.x3url;

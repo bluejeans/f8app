@@ -1,6 +1,6 @@
 
 /**
- * Copyright 2014 Facebook, Inc.
+ * Copyright 2016 Facebook, Inc.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -34,11 +34,11 @@ class F8SplitView extends React.Component {
   constructor(props: any, context: any) {
     super(props, context);
 
-    this.openPane = this.openPane.bind(this);
-    this.closePane = this.closePane.bind(this);
-    this.onPaneOpen = this.onPaneOpen.bind(this);
-    this.onPaneClose = this.onPaneClose.bind(this);
-    this.handleBackButton = this.handleBackButton.bind(this);
+    (this: any).openPane = this.openPane.bind(this);
+    (this: any).closePane = this.closePane.bind(this);
+    (this: any).onPaneOpen = this.onPaneOpen.bind(this);
+    (this: any).onPaneClose = this.onPaneClose.bind(this);
+    (this: any).handleBackButton = this.handleBackButton.bind(this);
   }
 
   render() {
@@ -46,7 +46,7 @@ class F8SplitView extends React.Component {
     const {Right, Left} = SplitViewWindows.positions;
     return (
       <SplitViewWindows
-        ref={(splitView) => this._splitView = splitView}
+        ref={(splitView) => { this._splitView = splitView; }}
         {...props}
         panePosition={panePosition === 'right' ? Right : Left}
         onPaneOpen={this.onPaneOpen}
@@ -56,7 +56,7 @@ class F8SplitView extends React.Component {
   }
 
   componentWillUnmount() {
-    this.context.removeBackButtonListener(this.closePane);
+    this.context.removeBackButtonListener(this.handleBackButton);
     this._splitView = null;
   }
 

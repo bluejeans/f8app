@@ -118,7 +118,7 @@ class GeneralScheduleView extends React.Component {
           ref={(splitView) => this._splitView = splitView}
           paneWidth={300}
           panePosition="right"
-          renderPaneView={this.renderNavigationView}>
+          renderPaneView={this.renderPaneView}>
           {content}
         </F8SplitView>  
       );
@@ -135,9 +135,11 @@ class GeneralScheduleView extends React.Component {
   }
 
   renderNavigationView() {
-    return <FilterScreen
-             onClose={() => (this._drawer && this._drawer.closeDrawer()) || (this._splitView && this._splitView.closePane())}
-           />;
+    return <FilterScreen onClose={() => this._drawer && this._drawer.closeDrawer()} />;
+  }
+
+  renderPaneView() {
+    return <FilterScreen onClose={() => this._splitView && this._splitView.closePane()} />;
   }
 
   renderEmptyList(day: number) {

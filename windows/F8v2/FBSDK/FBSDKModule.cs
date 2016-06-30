@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Storage;
 using Windows.UI.Core;
 using winsdkfb;
 using winsdkfb.Graph;

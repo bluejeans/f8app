@@ -64,7 +64,14 @@ type State = {
 
 const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 
-var ActivityIndicator = require('ActivityIndicator');
+var ActivityIndicatorIOS = require('ActivityIndicatorIOS');
+var ProgressRingWindows = require('ProgressRingWindows');
+var ProgressBarAndroid = require('ProgressBarAndroid');
+const ActivityIndicator = Platform.OS === 'ios'
+  ? ActivityIndicatorIOS
+  : Platform.OS === 'windows'
+    ? ProgressRingWindows 
+    : ProgressBarAndroid;
 
 var Relay = require('react-relay');
 var RelayRenderer = require('react-relay/lib/RelayRenderer.js');
@@ -137,7 +144,7 @@ class ListContainer extends React.Component {
 
   render() {
     var leftItem = this.props.leftItem;
-    if (!leftItem && Platform.OS !== 'ios') {
+    if (!leftItem && (Platform.OS === 'android' || Platform.OS === 'windows')) {
       leftItem = {
         title: 'Menu',
         icon: this.context.hasUnreadNotifications
@@ -215,7 +222,7 @@ class ListContainer extends React.Component {
   }
 
   renderParallaxContent() {
-    if (Platform.OS !== 'ios') {
+    if (Platform.OS === 'android' || Platform.OS === 'windows') {
       return <View />;
     }
     if (this.props.parallaxContent) {
@@ -229,7 +236,7 @@ class ListContainer extends React.Component {
   }
 
   renderHeaderTitle(): ?ReactElement {
-    if (Platform.OS !== 'ios') {
+    if (Platform.OS === 'android' || Platform.OS === 'windows') {
       return null;
     }
     var transform;

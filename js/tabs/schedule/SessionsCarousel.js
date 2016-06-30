@@ -121,7 +121,7 @@ class SessionsCarusel extends React.Component {
   render() {
     var {rowIndex, sectionLength, sectionTitle} = this.state.contexts[this.state.selectedIndex];
     var rightItem;
-    if (Platform.OS !== 'ios') {
+    if (Platform.OS === 'android' || Platform.OS === 'windows') {
       rightItem = {
         title: 'Share',
         icon: require('./img/share.png'),

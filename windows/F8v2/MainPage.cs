@@ -9,7 +9,6 @@ using ReactNative.Shell;
 using ReactNative.UIManager;
 using System;
 using System.Collections.Generic;
-using Windows.Security.Authentication.Web;
 
 namespace F8v2
 {

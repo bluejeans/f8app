@@ -315,11 +315,7 @@ var styles = StyleSheet.create({
   },
 });
 
-const Header = Platform.OS === 'ios' 
-  ? F8HeaderIOS 
-  : Platform.OS === 'android' 
-    ? F8HeaderAndroid
-    : F8HeaderWindows;
+const Header = Platform.OS === 'ios' ? F8HeaderIOS : Platform.OS === 'windows' ? F8HeaderWindows : F8HeaderAndroid;
     
 Header.height = HEADER_HEIGHT;
 // $FlowFixMe

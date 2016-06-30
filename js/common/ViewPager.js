@@ -31,7 +31,6 @@ const {
   ScrollView,
   ViewPagerAndroid,
   Platform,
-  Dimensions,
 } = require('react-native');
 
 const {FlipViewWindows} = require('react-native-windows');
@@ -73,10 +72,10 @@ class ViewPager extends React.Component {
   render() {
     if (Platform.OS === 'ios') {
       return this.renderIOS();
-    } else if (Platform.OS === 'android') {
-      return this.renderAndroid();
-    } else {
+    } else if (Platform.OS === 'windows') {
       return this.renderWindows();
+    } else {
+      return this.renderAndroid();
     }
   }
 
