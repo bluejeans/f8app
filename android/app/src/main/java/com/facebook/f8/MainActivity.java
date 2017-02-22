@@ -23,6 +23,11 @@
 package com.facebook.f8;
 
 import com.facebook.react.ReactActivity;
+import cl.json.RNSharePackage;
+import com.burnweb.rnsendintent.RNSendIntentPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.microsoft.codepush.react.CodePush;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -89,6 +94,11 @@ public class MainActivity extends ReactActivity {
 
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new RNSharePackage(),
+            new RNSendIntentPackage(),
+            new LinearGradientPackage(),
+            new FBSDKPackage(),
+            new CodePush(null, this, BuildConfig.DEBUG),
         new FBSDKPackage(mCallbackManager),
         new LinearGradientPackage(),
         new RNSharePackage(),
