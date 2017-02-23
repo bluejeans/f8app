@@ -146,7 +146,7 @@ function shareSession(session: Session): ThunkAction {
       Share.open({
         share_text: session.title,
         share_URL: url,
-        title: 'Share Link to ' + session.title
+        title: 'Share Link to ' + session.title,
       }, (e) => logShare(session.id, true, null));
     }
   };

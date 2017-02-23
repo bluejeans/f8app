@@ -94,11 +94,11 @@ public class MainActivity extends ReactActivity {
 
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
-            new RNSharePackage(),
-            new RNSendIntentPackage(),
-            new LinearGradientPackage(),
-            new FBSDKPackage(),
-            new CodePush(null, this, BuildConfig.DEBUG),
+        new RNSharePackage(),
+        new RNSendIntentPackage(),
+        new LinearGradientPackage(),
+        new FBSDKPackage(),
+        new CodePush(null, this, BuildConfig.DEBUG),
         new FBSDKPackage(mCallbackManager),
         new LinearGradientPackage(),
         new RNSharePackage(),
