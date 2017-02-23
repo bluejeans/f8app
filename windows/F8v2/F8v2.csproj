@@ -213,7 +213,7 @@
       <Project>{c7673ad5-e3aa-468c-a5fd-fa38154e205c}</Project>
       <Name>ReactNative</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\node_modules\react-native-share\windows\RNShare\RNShare.csproj">
+    <ProjectReference Include="$(SolutionDir)..\node_modules\react-native-share\windows\RNShare\RNShare.csproj">
       <Project>{4acdd44c-e556-423e-bd74-b4cef3e67ff0}</Project>
       <Name>RNShare</Name>
     </ProjectReference>
