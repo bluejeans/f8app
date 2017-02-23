@@ -31,6 +31,11 @@ ios/F8v2.xcworkspace
 local.properties
 *.iml
 
+# Visual Studio
+#
+*.VC.db
+*.VC.VC.opendb
+
 # VSCode
 #
 .vscode

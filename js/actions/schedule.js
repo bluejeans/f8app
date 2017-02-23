@@ -30,6 +30,7 @@ const Platform = require('Platform');
 const InteractionManager = require('InteractionManager');
 const ActionSheetIOS = require('ActionSheetIOS');
 const Alert = require('Alert');
+const Share = require('react-native-share');
 const Agenda = Parse.Object.extend('Agenda');
 const {currentInstallation, updateInstallation} = require('./installation');
 
@@ -142,12 +143,11 @@ function shareSession(session: Session): ThunkAction {
         url,
       }, (e) => console.error(e), logShare.bind(null, session.id));
     } else {
-      console.log('TODO: use react-native share')
-      // Share.open({
-      //   share_text: session.title,
-      //   share_URL: url,
-      //   title: 'Share Link to ' + session.title,
-      // }, (e) => logShare(session.id, true, null));
+      Share.open({
+        share_text: session.title,
+        share_URL: url,
+        title: 'Share Link to ' + session.title
+      }, (e) => logShare(session.id, true, null));
     }
   };
 }
