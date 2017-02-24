@@ -73,7 +73,7 @@ namespace F8v2
         private class F8Package : IReactPackage
         {
 #if !PRODFBAPP
-            private const string F8AppID = "223301094807367";
+            private const string F8AppID = "100794426989995";
             private const string WinAppID = "s-1-15-2-1021559226-2231154958-934963822-372647946-3828823154-3101400036-3758457008";
 #else
             private const string F8AppID = "619048868222429";
